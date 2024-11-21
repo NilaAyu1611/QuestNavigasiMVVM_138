@@ -122,7 +122,13 @@ fun FormulirView(modifier: Modifier = Modifier,
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Phone)
         )
 
-
+        Button(onClick = {
+            onSubmitClicked(listData)
+        },
+            modifier = Modifier.padding(top = 20.dp)            // Memberi jarak 16dp di atas tombol
+        ){
+            Text(text = "Simpan")
+        }
 
 
     }
