@@ -29,6 +29,7 @@ import androidx.compose.ui.unit.dp
 fun FormulirView(modifier: Modifier = Modifier,
                  listJK: List<String>,
                  onSubmitClicked: (MutableList<String>) -> Unit){           // untuk menghandle onclik
+    var nim by remember { mutableStateOf("") }
     var nama by remember { mutableStateOf("") }
     var gender by remember { mutableStateOf("") }
     var email by remember { mutableStateOf("") }
@@ -36,86 +37,9 @@ fun FormulirView(modifier: Modifier = Modifier,
     var notelepon by remember { mutableStateOf("") }
 
 
-    val listData: MutableList<String> = mutableListOf(nama, gender,email,alamat,notelepon)
+    val listData: MutableList<String> = mutableListOf(nim, nama, gender,email,alamat,notelepon)
 
 
-    Column(
-        modifier = modifier.fillMaxSize().padding(16.dp),
-        horizontalAlignment = Alignment.CenterHorizontally
 
-    ){
-        Spacer(modifier = Modifier.height(32.dp)) // Tambahkan jarak vertikal di bagian atas
-
-        TextField(
-            value = nama,
-            onValueChange = {nama=it},
-            label = {
-                Text(text = "Nama" )
-            },
-            placeholder = {
-                Text(text = "Isi nama anda")
-            },
-            modifier = Modifier.fillMaxWidth().padding(5.dp)
-        )
-        Row (
-            modifier = modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceAround           // Memberi jarak antar elemen
-            ){
-            listJK.forEach{selectedGender ->
-                Row(verticalAlignment = Alignment.CenterVertically){
-                    RadioButton(
-                        selected = gender == selectedGender,
-                        onClick = {gender = selectedGender}
-                    )
-                    Text(text = selectedGender)
-                }
-            }
-        }
-        TextField(
-            value = email,
-            onValueChange = {email=it},
-            label = {
-                Text(text = "Email" )
-            },
-            placeholder = {
-                Text(text = "Isi email anda")
-            },
-            modifier = Modifier.fillMaxWidth().padding(5.dp)
-        )
-        TextField(
-            value = alamat,
-            onValueChange = {alamat=it},
-            label = {
-                Text(text = "Alamat" )
-            },
-            placeholder = {
-                Text(text = "Isi alamat anda")
-            },
-            modifier = Modifier.fillMaxWidth().padding(5.dp),
-            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email)
-
-        )
-        TextField(
-            value = notelepon,
-            onValueChange = {notelepon=it},
-            label = {
-                Text(text = "No Telepon" )
-            },
-            placeholder = {
-                Text(text = "Isi notelepon anda")
-            },
-            modifier = Modifier.fillMaxWidth().padding(5.dp),
-            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Phone)
-        )
-        Button(onClick = {
-           onSubmitClicked(listData)
-        },
-            modifier = Modifier.padding(top = 20.dp)            // Memberi jarak 16dp di atas tombol
-        ){
-            Text(text = "Simpan")
-        }
-
-
-    }
 }
 
