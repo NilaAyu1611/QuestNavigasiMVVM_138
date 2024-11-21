@@ -14,14 +14,17 @@ class SiswaViewModel: ViewModel() {
     val statusUI: StateFlow<DataSiswa> = _statusUI.asStateFlow()
 
     fun saveDataSiswa(ls: MutableList<String>){
-        _statusUI.update { statusSaatIni ->                 // statusaatini isinya sebuah model, isinya datasiswa
+        _statusUI.update { statusSaatIni ->                 // statu saatini isinya sebuah model, isinya datasiswa
             statusSaatIni.copy(
-                nama = ls[0],           //yang kita inputakan itu ada di ui
-                gender = ls[1],
-                email = ls[2],
-                alamat = ls[3],
-                notelepon = ls[4],
+                nim =ls[0],
+                nama = ls[1],           //yang kita inputakan itu ada di ui
+                gender = ls[2],
+                email = ls[3],
+                alamat = ls[4],
+                notelepon = ls[5],
             )
         }
     }
+
+
 }
