@@ -39,6 +39,40 @@ fun FormulirView(modifier: Modifier = Modifier,
 
     val listData: MutableList<String> = mutableListOf(nim, nama, gender,email,alamat,notelepon)
 
+    Column(
+        modifier = modifier.fillMaxSize().padding(16.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
+
+    ){
+        Spacer(modifier = Modifier.height(32.dp)) // Tambahkan jarak vertikal di bagian atas
+
+        TextField(
+            value = nim,
+            onValueChange = {nim=it},
+            label = {
+                Text(text = "NIM" )
+            },
+            placeholder = {
+                Text(text = "Isi NIM anda")
+            },
+            modifier = Modifier.fillMaxWidth().padding(5.dp)
+        )
+
+        TextField(
+            value = nama,
+            onValueChange = {nama=it},
+            label = {
+                Text(text = "Nama" )
+            },
+            placeholder = {
+                Text(text = "Isi nama anda")
+            },
+            modifier = Modifier.fillMaxWidth().padding(5.dp)
+        )
+
+
+
+    }
 
 
 }
