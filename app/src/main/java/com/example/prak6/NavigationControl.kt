@@ -19,48 +19,7 @@ import com.example.prak6.ui.view.TampiData
 import com.example.prak6.ui.view.TampilData
 import com.example.prak6.viewmodel.SiswaViewModel
 
-enum class Halaman{
+enum class Halaman{             // berisi daftar halaman
     FORMULIR,
     TAMPILDATA
-}
-
-@Composable
-fun NavigationControl(
-    modifier: Modifier = Modifier,
-    viewModel: SiswaViewModel = viewModel(),
-    navHost: NavHostController = rememberNavController()
-)
-
-{
-    val uiState by viewModel.statusUI.collectAsState()
-
-    NavHost(
-        navController = navHost,
-        startDestination = Halaman.FORMULIR.name)
-    {
-        composable(
-            route = Halaman.FORMULIR.name
-        ){
-            val konteks = LocalContext.current
-            FormulirView(
-                listJK = JenisK.map{
-                    id -> konteks.getString(id)
-                },
-                onSubmitClicked = {
-                    viewModel.saveDataSiswa(it)
-                    navHost.navigate(Halaman.TAMPILDATA.name)
-                }
-            )
-        }
-        composable(route = Halaman.TAMPILDATA.name){
-            TampiData(uiState = uiState,
-                onBackButton = {navHost.popBackStack()
-                } )
-        }
-    }
-
-
-
-
-
 }
