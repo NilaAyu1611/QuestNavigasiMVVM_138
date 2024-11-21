@@ -36,40 +36,9 @@ fun TampiData(uiState: DataSiswa, onBackButton: () -> Unit
             color = Color.Blue
         )
 
-        TampilData(param = "Nama", argu = uiState.nama)
-        TampilData(param =  "Jenis Kelamin", argu = uiState.gender)
-        TampilData(param = "Email", argu = uiState.email)
-        TampilData(param = "Alamat", argu = uiState.alamat)
-        TampilData(param = "No Telepon", argu = uiState.notelepon)
 
-        Button(
-            onClick = onBackButton,
-            modifier = Modifier.padding(top = 20.dp)
-        ) {
-            Text(text = "Kembali")
-        }
-    }
 
 }
 
 
 @Composable
-fun TampilData(
-    param : String, argu:String             // Agar lebih mudah dideklarasikan maka nanti tinggal dipanggil
-){
-    Column (
-        modifier = Modifier.padding(16.dp)
-    ){
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceBetween
-        ){
-            Text(text = param,
-                modifier = Modifier.weight(0.9f))
-            Text(text = " :",
-                modifier = Modifier.weight(0.2f))
-            Text(text = argu,
-                modifier = Modifier.weight(2f))       // Mmberikan ruang
-        }
-    }
-}
