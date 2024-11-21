@@ -35,7 +35,31 @@ fun NavigationControl(
 {
     val uiState by viewModel.statusUI.collectAsState()          // Mengamati perubahan pada data statusUI dalam ViewModel
 
-
+    NavHost(                                        // mengelola navigasi antar halaman
+        navController = navHost,
+        startDestination = Halaman.FORMULIR.name)       // halaman formulir yang muncul pertama
+    {
+        composable(
+            route = Halaman.FORMULIR.name
+        ){
+            val konteks = LocalContext.current
+            FormulirView(
+                listJK = JenisK.map{
+                        id -> konteks.getString(id)
+                },
+                onSubmitClicked = {
+                    viewModel.saveDataSiswa(it)
+                    navHost.navigate(Halaman.TAMPILDATA.name)
+                }
+            )
+        }
+        composable(route = Halaman.TAMPILDATA.name){
+            TampiData(uiState = uiState,
+                onBackButton = {navHost.popBackStack()
+                }
+            )
+        }
+    }
 
 
 }
