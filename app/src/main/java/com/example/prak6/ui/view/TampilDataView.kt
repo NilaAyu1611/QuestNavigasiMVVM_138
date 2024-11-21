@@ -59,7 +59,7 @@ fun TampilData(
     param : String, argu:String             // Agar lebih mudah dideklarasikan maka nanti tinggal dipanggil
 ){
     Column (
-        modifier = Modifier.padding(16.dp)
+        modifier = Modifier.padding(8.dp)       // agar tidak terlalu lebar jaraknya
     ){
         Row(
             modifier = Modifier.fillMaxWidth(),
