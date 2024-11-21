@@ -33,6 +33,8 @@ fun NavigationControl(
 )
 
 {
+    val uiState by viewModel.statusUI.collectAsState()          // Mengamati perubahan pada data statusUI dalam ViewModel
+
 
 
 
