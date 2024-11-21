@@ -70,6 +70,22 @@ fun FormulirView(modifier: Modifier = Modifier,
             modifier = Modifier.fillMaxWidth().padding(5.dp)
         )
 
+        Row (
+            modifier = modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceAround           // Memberi jarak antar elemen
+        ){
+            listJK.forEach{selectedGender ->
+                Row(verticalAlignment = Alignment.CenterVertically){
+                    RadioButton(
+                        selected = gender == selectedGender,
+                        onClick = {gender = selectedGender}
+                    )
+                    Text(text = selectedGender)
+                }
+            }
+        }
+
+
 
 
     }
